@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="styles.css" />
+		<title>TV SHOWS APP</title>
+	</head>
+
+	<body>
+		<div class="container">
+			<header>
+				<h1 id="title">TV SHOWS APP</h1>
+			</header>
+
+			<div class="show">
+				<div class="show-desc">
+					<h2>IT'S ALWAYS SUNNY IN PHILADELPHIA</h2>
+					<p>Five friends with big egos and small brains are the proprietors of an Irish pub in Philadelphia.</p>
+					<p id="average-rating">-/5</p>
+				</div>
+
+				<div class="show-img">
+					<img src="https://images-na.ssl-images-amazon.com/images/I/A1trjD6OQYL._RI_.jpg" />
+				</div>
+			</div>
+
+			<form id="survey-form">
+				<div class="form-input">
+					<label>Reviews</label>
+					<textarea name="review" type="text" placeholder="Add review"></textarea>
+				</div>
+
+				<div class="form-input">
+					<label id="number-label"> Rating </label>
+					<input name="score" type="number" id="number" min="0" max="5" class="form-input-size" />
+				</div>
+
+				<div class="form-input">
+					<button type="submit" id="submit">Submit</button>
+				</div>
+			</form>
+
+			<ul id="rating-list"></ul>
+		</div>
+		<script src="./index.js"></script>
+	</body>
+</html>
