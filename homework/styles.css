@@ -2,6 +2,20 @@ html {
 	font-size: 16px;
 }
 
+li {
+	list-style-type: none;
+
+	background: rgba(21, 20, 85, 0.7);
+	padding: 0.2rem 2.5rem;
+	border-radius: 0.3rem;
+	margin-bottom: 10px;
+}
+
+ul {
+	list-style: none;
+	padding-left: 0;
+}
+
 body {
 	background-color: rgba(98, 95, 241, 0.635);
 	margin: 0;
@@ -16,7 +30,7 @@ body {
 
 .show {
 	display: flex;
-	margin-bottom: 50px;
+	margin-bottom: 30px;
 }
 
 @media (min-width: 576px) {
@@ -92,4 +106,5 @@ textarea {
 
 img {
 	height: 300px;
+	border-radius: 5px;
 }
