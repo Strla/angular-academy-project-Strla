@@ -31,6 +31,7 @@ body {
 
 .show {
 	display: flex;
+	flex-direction: column;
 	margin-bottom: 30px;
 }
 
@@ -49,6 +50,9 @@ body {
 @media (min-width: 768px) {
 	.container {
 		max-width: 720px;
+	}
+	.show {
+		flex-direction: row;
 	}
 }
 

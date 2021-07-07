@@ -1,19 +1,50 @@
 let reviews = [
 	{
 		text: "Awesome show!",
-		score: "5"
+		score: 5
 	},
 	{
 		text: "Not good, not terrible",
-		score: "3"
+		score: 3
 	}
 ];
 
 const ratingListElement = document.querySelector("#rating-list");
+const averageRatingElement = document.querySelector("#average-rating");
 
-for(let i = 0; i < reviews.length; i++){
+
+
+function renderAll() {
+	ratingListElement.innerHTML = "";
+	for(let i = 0; i < reviews.length; i++){
 	renderReview(reviews[i]);
 }
+}
+
+renderAll();
+
+
+function calculateRating() {
+	let sum = 0;
+	reviews.forEach(review => {
+		sum += Number(review.score);
+	});
+
+	console.log(sum);
+	console.log(reviews.length);
+
+	return sum/reviews.length;
+}
+
+
+
+function renderAvgRating () {
+	averageRatingElement.innerHTML = calculateRating() + "/5";
+}
+
+renderAvgRating();
+
+
 
 
 function renderReview(review){
@@ -26,7 +57,10 @@ function renderReview(review){
 	remove.textContent = "Remove";
 
 	remove.addEventListener("click", function() {
-		
+		const index = reviews.indexOf(review);
+		reviews.splice(index,1);
+		renderAll();
+		renderAvgRating();
 	});
 
 
@@ -52,6 +86,7 @@ reviewFormElement.addEventListener("submit", function (event) {
 
 	reviews.push(review);
 	renderReview(review);
+	renderAvgRating();
 });
 
 
