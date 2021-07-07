@@ -21,7 +21,7 @@ function renderReview(review){
 	const score = document.createElement("p");
 	
 	listItem.textContent = review.text;
-	score.textContent = review.score;
+	score.textContent = `${review.score}/5`;
 
 	listItem.appendChild(score);
 	ratingListElement.appendChild(listItem);
