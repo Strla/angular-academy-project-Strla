@@ -34,6 +34,12 @@ body {
 	margin-bottom: 30px;
 }
 
+@media (min-width: 300px) {
+	.container {
+		max-width: 300px;
+	}
+}
+
 @media (min-width: 576px) {
 	.container {
 		max-width: 540px;
@@ -103,6 +109,17 @@ textarea {
 	border-radius: 0.2rem;
 	cursor: pointer;
 	border: none;
+}
+
+li button {
+	width: 70px;
+	padding: 0.3rem;
+	background: rgb(7, 173, 7);
+	color: white;
+	border-radius: 0.2rem;
+	cursor: pointer;
+	border: none;
+	margin-bottom: 5px;
 }
 
 img {

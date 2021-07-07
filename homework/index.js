@@ -19,11 +19,19 @@ for(let i = 0; i < reviews.length; i++){
 function renderReview(review){
 	const listItem = document.createElement("li");
 	const score = document.createElement("p");
+	const remove = document.createElement("button");
 	
 	listItem.textContent = review.text;
 	score.textContent = `${review.score}/5`;
+	remove.textContent = "Remove";
+
+	remove.addEventListener("click", function() {
+		
+	});
+
 
 	listItem.appendChild(score);
+	listItem.appendChild(remove);
 	ratingListElement.appendChild(listItem);
 }
 
