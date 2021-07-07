@@ -14,6 +14,11 @@ body {
 	margin: 3.2rem auto 0 auto;
 }
 
+.show {
+	display: flex;
+	margin-bottom: 50px;
+}
+
 @media (min-width: 576px) {
 	.container {
 		max-width: 540px;
@@ -35,7 +40,8 @@ h1 {
 	font-weight: 400;
 }
 
-#survey-form {
+#survey-form,
+.show {
 	background: rgba(21, 20, 85, 0.7);
 	padding: 2.3rem 0.5rem;
 	border-radius: 0.3rem;
@@ -82,4 +88,8 @@ textarea {
 	border-radius: 0.2rem;
 	cursor: pointer;
 	border: none;
+}
+
+img {
+	height: 300px;
 }
