@@ -1,1 +1,15 @@
-<p>show-card works!</p>
+<mat-card class="show-card">
+	<div class="image">
+		<img [src]="imageUrl" />
+	</div>
+	<div>
+		<h3>{{ title }}</h3>
+		<p>
+			Description: <span>{{ description }}</span>
+		</p>
+		<p>
+			Average rating: <span>{{ averageRating }}</span>
+		</p>
+	</div>
+	<app-rating-component></app-rating-component>
+</mat-card>
