@@ -7,9 +7,6 @@
 		<p>
 			<span>{{ description }}</span>
 		</p>
-		<p>
-			Average rating: <span>{{ averageRating }}</span>
-		</p>
 	</div>
-	<app-rating-component></app-rating-component>
+	<app-rating-component [rating]="averageRating"></app-rating-component>
 </mat-card>
