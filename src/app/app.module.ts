@@ -27,7 +27,7 @@ import { ShowDetailComponent } from './pages/show-detail-container/components/sh
 		RatingComponentComponent,
 		TopRatedShowsContainerComponent,
 		ShowDetailContainerComponent,
-  ShowDetailComponent,
+		ShowDetailComponent,
 	],
 	imports: [BrowserModule, BrowserAnimationsModule, MatCardModule, MatSidenavModule, AppRoutingModule],
 	providers: [],

@@ -9,9 +9,9 @@ export class Show {
 		this.id = rawShowData.id;
 	}
 
-	title: string;
-	description: string;
-	averageRating: number;
-	imageUrl: string;
-	id: string;
+	public title: string;
+	public description: string;
+	public averageRating: number;
+	public imageUrl: string;
+	public id: string;
 }

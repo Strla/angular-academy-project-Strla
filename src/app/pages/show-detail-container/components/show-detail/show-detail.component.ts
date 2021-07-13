@@ -9,4 +9,8 @@ import { Show } from 'src/app/services/show/show.model';
 })
 export class ShowDetailComponent {
 	@Input() show: Show;
+
+	public getTitle() {
+		console.log(this.show.title);
+	}
 }

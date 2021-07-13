@@ -9,7 +9,7 @@ import { ShowService } from 'src/app/services/show/show.service';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AllShowsContainerComponent {
-	shows: Array<Show>;
+	public shows: Array<Show>;
 
 	constructor(private showService: ShowService) {}
 
