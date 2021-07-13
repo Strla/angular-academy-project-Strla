@@ -13,6 +13,8 @@ import { ShowCardComponent } from './components/show-card/show-card.component';
 import { RatingComponentComponent } from './components/rating-component/rating-component.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TopRatedShowsContainerComponent } from './pages/top-rated-shows-container/top-rated-shows-container.component';
+import { ShowDetailContainerComponent } from './pages/show-detail-container/show-detail-container.component';
+import { ShowDetailComponent } from './pages/show-detail-container/components/show-detail/show-detail.component';
 
 @NgModule({
 	declarations: [
@@ -22,8 +24,10 @@ import { TopRatedShowsContainerComponent } from './pages/top-rated-shows-contain
 		AllShowsContainerComponent,
 		ShowListComponent,
 		ShowCardComponent,
-  RatingComponentComponent,
-  TopRatedShowsContainerComponent,
+		RatingComponentComponent,
+		TopRatedShowsContainerComponent,
+		ShowDetailContainerComponent,
+  ShowDetailComponent,
 	],
 	imports: [BrowserModule, BrowserAnimationsModule, MatCardModule, MatSidenavModule, AppRoutingModule],
 	providers: [],
