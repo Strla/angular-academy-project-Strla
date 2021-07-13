@@ -11,6 +11,8 @@ import { AllShowsContainerComponent } from './pages/all-shows-container/all-show
 import { ShowListComponent } from './components/show-list/show-list.component';
 import { ShowCardComponent } from './components/show-card/show-card.component';
 import { RatingComponentComponent } from './components/rating-component/rating-component.component';
+import { AppRoutingModule } from './app-routing.module';
+import { TopRatedShowsContainerComponent } from './pages/top-rated-shows-container/top-rated-shows-container.component';
 
 @NgModule({
 	declarations: [
@@ -21,8 +23,9 @@ import { RatingComponentComponent } from './components/rating-component/rating-c
 		ShowListComponent,
 		ShowCardComponent,
   RatingComponentComponent,
+  TopRatedShowsContainerComponent,
 	],
-	imports: [BrowserModule, BrowserAnimationsModule, MatCardModule, MatSidenavModule],
+	imports: [BrowserModule, BrowserAnimationsModule, MatCardModule, MatSidenavModule, AppRoutingModule],
 	providers: [],
 	bootstrap: [AppComponent],
 })
