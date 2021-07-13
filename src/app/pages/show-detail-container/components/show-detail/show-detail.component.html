@@ -1,0 +1,18 @@
+<mat-card class="show-detail-container" (click)="getTitle()">
+	<div>
+		<img [src]="show.imageUrl" />
+	</div>
+
+	<div class="show-details">
+		<div class="left-side">
+			<h3>{{ show.title }}</h3>
+			<app-rating-component [rating]="show.averageRating"></app-rating-component>
+		</div>
+
+		<div class="right-side">
+			<p>
+				<span>{{ show.description }}</span>
+			</p>
+		</div>
+	</div>
+</mat-card>

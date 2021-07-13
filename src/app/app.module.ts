@@ -11,6 +11,10 @@ import { AllShowsContainerComponent } from './pages/all-shows-container/all-show
 import { ShowListComponent } from './components/show-list/show-list.component';
 import { ShowCardComponent } from './components/show-card/show-card.component';
 import { RatingComponentComponent } from './components/rating-component/rating-component.component';
+import { AppRoutingModule } from './app-routing.module';
+import { TopRatedShowsContainerComponent } from './pages/top-rated-shows-container/top-rated-shows-container.component';
+import { ShowDetailContainerComponent } from './pages/show-detail-container/show-detail-container.component';
+import { ShowDetailComponent } from './pages/show-detail-container/components/show-detail/show-detail.component';
 
 @NgModule({
 	declarations: [
@@ -20,9 +24,12 @@ import { RatingComponentComponent } from './components/rating-component/rating-c
 		AllShowsContainerComponent,
 		ShowListComponent,
 		ShowCardComponent,
-  RatingComponentComponent,
+		RatingComponentComponent,
+		TopRatedShowsContainerComponent,
+		ShowDetailContainerComponent,
+		ShowDetailComponent,
 	],
-	imports: [BrowserModule, BrowserAnimationsModule, MatCardModule, MatSidenavModule],
+	imports: [BrowserModule, BrowserAnimationsModule, MatCardModule, MatSidenavModule, AppRoutingModule],
 	providers: [],
 	bootstrap: [AppComponent],
 })
