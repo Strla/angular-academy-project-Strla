@@ -21,9 +21,7 @@ interface ITemplateData {
 export class ShowDetailContainerComponent {
 	constructor(private route: ActivatedRoute, private showService: ShowService, private reviewService: ReviewService) {}
 
-	public reviews: Array<Review>;
-
-	public show$: Observable<Show | null> = this.route.paramMap.pipe(
+	private show$: Observable<Show | null> = this.route.paramMap.pipe(
 		switchMap((paramMap) => {
 			const id: string | null = paramMap.get('id');
 
@@ -35,7 +33,7 @@ export class ShowDetailContainerComponent {
 		})
 	);
 
-	public reviews$: Observable<Array<Review> | null> = this.route.paramMap.pipe(
+	private reviews$: Observable<Array<Review> | null> = this.route.paramMap.pipe(
 		switchMap((paramMap) => {
 			const id: string | null = paramMap.get('id');
 

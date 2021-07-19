@@ -17,6 +17,7 @@ import { ShowDetailContainerComponent } from './pages/show-detail-container/show
 import { ShowDetailComponent } from './pages/show-detail-container/components/show-detail/show-detail.component';
 import { ShowReviewComponent } from './pages/show-detail-container/components/show-review/show-review.component';
 import { ReviewListComponent } from './pages/show-detail-container/components/review-list/review-list.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
 	declarations: [
@@ -30,10 +31,17 @@ import { ReviewListComponent } from './pages/show-detail-container/components/re
 		TopRatedShowsContainerComponent,
 		ShowDetailContainerComponent,
 		ShowDetailComponent,
-  ShowReviewComponent,
-  ReviewListComponent,
+		ShowReviewComponent,
+		ReviewListComponent,
 	],
-	imports: [BrowserModule, BrowserAnimationsModule, MatCardModule, MatSidenavModule, AppRoutingModule],
+	imports: [
+		BrowserModule,
+		BrowserAnimationsModule,
+		MatCardModule,
+		MatSidenavModule,
+		AppRoutingModule,
+		MatProgressSpinnerModule,
+	],
 	providers: [],
 	bootstrap: [AppComponent],
 })

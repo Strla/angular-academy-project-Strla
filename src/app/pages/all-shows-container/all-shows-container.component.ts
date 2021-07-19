@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { combineLatest, Observable } from 'rxjs';
-import { map, tap } from 'rxjs/internal/operators';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/internal/operators';
 import { Show } from 'src/app/services/show/show.model';
 import { ShowService } from 'src/app/services/show/show.service';
 
@@ -12,6 +12,7 @@ import { ShowService } from 'src/app/services/show/show.service';
 })
 export class AllShowsContainerComponent {
 	public shows: Array<Show>;
+	public errorMsg: string;
 
 	public shows$: Observable<Array<Show>> = this.showService.getShows();
 
