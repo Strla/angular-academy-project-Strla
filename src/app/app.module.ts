@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { TopRatedShowsContainerComponent } from './pages/top-rated-shows-container/top-rated-shows-container.component';
 import { ShowDetailContainerComponent } from './pages/show-detail-container/show-detail-container.component';
 import { ShowDetailComponent } from './pages/show-detail-container/components/show-detail/show-detail.component';
+import { ShowReviewComponent } from './pages/show-detail-container/components/show-review/show-review.component';
 
 @NgModule({
 	declarations: [
@@ -28,6 +29,7 @@ import { ShowDetailComponent } from './pages/show-detail-container/components/sh
 		TopRatedShowsContainerComponent,
 		ShowDetailContainerComponent,
 		ShowDetailComponent,
+  ShowReviewComponent,
 	],
 	imports: [BrowserModule, BrowserAnimationsModule, MatCardModule, MatSidenavModule, AppRoutingModule],
 	providers: [],

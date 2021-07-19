@@ -1,3 +1,7 @@
-<ng-container *ngIf="show">
+<ng-container *ngIf="show$ | async as show">
 	<app-show-detail [show]="show"></app-show-detail>
+</ng-container>
+
+<ng-container *ngIf="review$ | async as review">
+	<app-show-review [review]="review"></app-show-review>
 </ng-container>
