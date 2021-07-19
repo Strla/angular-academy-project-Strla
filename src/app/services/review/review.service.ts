@@ -40,12 +40,7 @@ export class ReviewService {
 			rating: 4,
 			comment: 'Entertaining',
 		},
-		{
-			id: '6',
-			showID: '4',
-			rating: 4,
-			comment: 'Unreal',
-		},
+
 		{
 			id: '7',
 			showID: '5',
