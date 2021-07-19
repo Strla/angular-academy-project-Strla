@@ -1,14 +1,15 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/internal/operators';
+import { combineLatest, Observable, of } from 'rxjs';
+import { map, switchMap, tap } from 'rxjs/internal/operators';
 import { Review } from 'src/app/services/review/review.model';
 import { ReviewService } from 'src/app/services/review/review.service';
 import { Show } from 'src/app/services/show/show.model';
 import { ShowService } from 'src/app/services/show/show.service';
 
 interface ITemplateData {
-	allReviews: Array<Review>;
+	show: Show;
+	reviews: Array<Review>;
 }
 
 @Component({
@@ -44,5 +45,15 @@ export class ShowDetailContainerComponent {
 
 			return of(null);
 		})
+	);
+
+	public templateData$: Observable<ITemplateData> = combineLatest([this.show$, this.reviews$]).pipe(
+		map(([show, reviews]) => {
+			return {
+				show,
+				reviews,
+			};
+		}),
+		tap(console.log)
 	);
 }

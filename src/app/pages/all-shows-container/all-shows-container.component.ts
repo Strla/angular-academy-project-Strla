@@ -4,10 +4,6 @@ import { map, tap } from 'rxjs/internal/operators';
 import { Show } from 'src/app/services/show/show.model';
 import { ShowService } from 'src/app/services/show/show.service';
 
-interface ITemplateData {
-	allShows: Array<Show>;
-	topRated: Array<Show>;
-}
 @Component({
 	selector: 'app-all-shows-container',
 	templateUrl: './all-shows-container.component.html',
