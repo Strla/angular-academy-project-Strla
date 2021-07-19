@@ -1,3 +1,4 @@
-<ng-container *ngIf="show">
-	<app-show-detail [show]="show"></app-show-detail>
+<ng-container *ngIf="templateData$ | async as templateData">
+	<app-show-detail [show]="templateData.show"></app-show-detail>
+	<app-review-list [reviews]="templateData.reviews"></app-review-list>
 </ng-container>
