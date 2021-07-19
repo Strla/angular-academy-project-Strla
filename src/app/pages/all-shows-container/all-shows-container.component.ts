@@ -18,17 +18,6 @@ export class AllShowsContainerComponent {
 	public shows: Array<Show>;
 
 	public shows$: Observable<Array<Show>> = this.showService.getShows();
-	public topRated$: Observable<Array<Show>> = this.showService.getTopRated();
-
-	public templateData$: Observable<ITemplateData> = combineLatest([this.shows$, this.topRated$]).pipe(
-		map(([shows, topRated]) => {
-			return {
-				allShows: shows,
-				topRated,
-			};
-		}),
-		tap(console.log)
-	);
 
 	constructor(private showService: ShowService) {}
 }

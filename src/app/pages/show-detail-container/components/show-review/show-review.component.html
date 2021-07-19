@@ -1,6 +1,6 @@
-<mat-card>
+<mat-card class="show-review-container">
 	<div class="review">
 		<p>{{ review.comment }}</p>
-		<p>{{ review.rating }}/5</p>
+		<app-rating-component [rating]="review.rating"></app-rating-component>
 	</div>
 </mat-card>
