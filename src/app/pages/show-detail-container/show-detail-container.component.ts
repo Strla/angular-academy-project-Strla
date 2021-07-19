@@ -40,7 +40,7 @@ export class ShowDetailContainerComponent {
 			const id: string | null = paramMap.get('id');
 
 			if (id) {
-				return this.reviewService.getAllReview(id);
+				return this.reviewService.getAllReviews(id);
 			}
 
 			return of(null);
