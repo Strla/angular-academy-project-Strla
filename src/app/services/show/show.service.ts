@@ -3,14 +3,12 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { delay, map } from 'rxjs/internal/operators';
 import { IRawShow } from 'src/app/interfaces/rawShow.interface';
-import { IRegistrationFormData } from 'src/app/pages/registration-container/components/registration-form/registration-form.component';
 import { Show } from './show.model';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class ShowService {
-	constructor(private http: HttpClient) {}
 	private rawData: Array<IRawShow> = [
 		{
 			title: 'Brookyln Nine-Nine',
@@ -85,9 +83,5 @@ export class ShowService {
 
 	public getShow(id: string): Observable<Show | null> {
 		return this.getShows().pipe(map((shows) => shows.find((show: Show) => show.id === id) || null));
-	}
-
-	public onRegister(userData: IRegistrationFormData): Observable<IRegistrationFormData> {
-		return this.http.post<IRegistrationFormData>('https://tv-shows.infinum.academy/users', userData);
 	}
 }

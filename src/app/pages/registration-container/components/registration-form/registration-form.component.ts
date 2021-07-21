@@ -5,7 +5,7 @@ import { PasswordMatch } from 'src/app/validators/password.validator';
 export interface IRegistrationFormData {
 	email: string;
 	password: string;
-	passwordConfirmation: string;
+	password_confirmation: string;
 }
 
 @Component({
@@ -21,10 +21,10 @@ export class RegistrationFormComponent {
 		{
 			email: ['', [Validators.required, Validators.email]],
 			password: ['', [Validators.required, Validators.minLength(8)]],
-			passwordConfirmation: ['', [Validators.required]],
+			password_confirmation: ['', [Validators.required]],
 		},
 		{
-			validator: PasswordMatch('password', 'passwordConfirmation'),
+			validator: PasswordMatch('password', 'password_confirmation'),
 		}
 	);
 

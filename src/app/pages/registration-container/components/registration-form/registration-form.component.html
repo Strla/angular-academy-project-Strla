@@ -13,19 +13,19 @@
 			<input matInput type="password" formControlName="password" />
 			<mat-icon matPrefix>lock</mat-icon>
 			<mat-error *ngIf="registrationFormGroup.get('password')?.errors?.required">Password is required</mat-error>
-			<mat-error *ngIf="registrationFormGroup.get('password')?.errors?.minLength"
+			<mat-error *ngIf="registrationFormGroup.get('password')?.errors?.minlength"
 				>Password must be at least 8 characters</mat-error
 			>
 		</mat-form-field>
 
 		<mat-form-field appearance="outline">
 			<mat-label>Confirmed Password</mat-label>
-			<input matInput type="password" formControlName="passwordConfirmation" />
+			<input matInput type="password" formControlName="password_confirmation" />
 			<mat-icon matPrefix>lock</mat-icon>
-			<mat-error *ngIf="registrationFormGroup.get('passwordConfirmation')?.errors?.required"
+			<mat-error *ngIf="registrationFormGroup.get('password_confirmation')?.errors?.required"
 				>Confirm Password is required</mat-error
 			>
-			<mat-error *ngIf="registrationFormGroup.get('passwordConfirmation')?.errors?.mustMatch"
+			<mat-error *ngIf="registrationFormGroup.get('password_confirmation')?.errors?.mustMatch"
 				>Passwords must match</mat-error
 			>
 		</mat-form-field>
