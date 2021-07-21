@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FormLayoutComponent } from './components/form-layout/form-layout.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 import { AllShowsContainerComponent } from './pages/all-shows-container/all-shows-container.component';
+import { LoginContainerComponent } from './pages/login-container/login-container.component';
+import { RegistrationContainerComponent } from './pages/registration-container/registration-container.component';
 import { ShowDetailContainerComponent } from './pages/show-detail-container/show-detail-container.component';
 import { TopRatedShowsContainerComponent } from './pages/top-rated-shows-container/top-rated-shows-container.component';
 
@@ -13,6 +16,20 @@ const routes: Routes = [
 			{ path: '', component: AllShowsContainerComponent },
 			{ path: 'top-rated', component: TopRatedShowsContainerComponent },
 			{ path: 'show/:id', component: ShowDetailContainerComponent },
+		],
+	},
+	{
+		path: '',
+		component: FormLayoutComponent,
+		children: [
+			{
+				path: 'registration',
+				component: RegistrationContainerComponent,
+			},
+			{
+				path: 'login',
+				component: LoginContainerComponent,
+			},
 		],
 	},
 	{
