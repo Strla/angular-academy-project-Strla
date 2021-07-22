@@ -1,46 +1,71 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MainLayoutComponent } from './components/main-layout/main-layout.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { FormLayoutComponent } from './components/form-layout/form-layout.component';
+import { MainLayoutComponent } from './components/main-layout/main-layout.component';
+import { RatingComponentComponent } from './components/rating-component/rating-component.component';
+import { ShowCardComponent } from './components/show-card/show-card.component';
+import { ShowListComponent } from './components/show-list/show-list.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { AllShowsContainerComponent } from './pages/all-shows-container/all-shows-container.component';
-import { ShowListComponent } from './components/show-list/show-list.component';
-import { ShowCardComponent } from './components/show-card/show-card.component';
-import { RatingComponentComponent } from './components/rating-component/rating-component.component';
-import { AppRoutingModule } from './app-routing.module';
-import { TopRatedShowsContainerComponent } from './pages/top-rated-shows-container/top-rated-shows-container.component';
-import { ShowDetailContainerComponent } from './pages/show-detail-container/show-detail-container.component';
+import { LoginFormComponent } from './pages/login-container/components/login-form/login-form.component';
+import { LoginContainerComponent } from './pages/login-container/login-container.component';
+import { RegistrationFormComponent } from './pages/registration-container/components/registration-form/registration-form.component';
+import { RegistrationContainerComponent } from './pages/registration-container/registration-container.component';
+import { ReviewListComponent } from './pages/show-detail-container/components/review-list/review-list.component';
 import { ShowDetailComponent } from './pages/show-detail-container/components/show-detail/show-detail.component';
 import { ShowReviewComponent } from './pages/show-detail-container/components/show-review/show-review.component';
-import { ReviewListComponent } from './pages/show-detail-container/components/review-list/review-list.component';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ShowDetailContainerComponent } from './pages/show-detail-container/show-detail-container.component';
+import { TopRatedShowsContainerComponent } from './pages/top-rated-shows-container/top-rated-shows-container.component';
 
 @NgModule({
 	declarations: [
-		AppComponent,
-		MainLayoutComponent,
-		SidenavComponent,
 		AllShowsContainerComponent,
-		ShowListComponent,
-		ShowCardComponent,
+		AppComponent,
+		FormLayoutComponent,
+		LoginContainerComponent,
+		LoginFormComponent,
+		MainLayoutComponent,
 		RatingComponentComponent,
-		TopRatedShowsContainerComponent,
-		ShowDetailContainerComponent,
-		ShowDetailComponent,
-		ShowReviewComponent,
+		RegistrationContainerComponent,
+		RegistrationFormComponent,
 		ReviewListComponent,
+		ShowCardComponent,
+		ShowDetailComponent,
+		ShowDetailContainerComponent,
+		ShowListComponent,
+		ShowReviewComponent,
+		SidenavComponent,
+		TopRatedShowsContainerComponent,
 	],
 	imports: [
-		BrowserModule,
-		BrowserAnimationsModule,
-		MatCardModule,
-		MatSidenavModule,
 		AppRoutingModule,
+		BrowserAnimationsModule,
+		BrowserModule,
+		HttpClientModule,
+		MatButtonModule,
+		MatCardModule,
+		MatFormFieldModule,
+		MatIconModule,
+		MatInputModule,
+		MatProgressBarModule,
 		MatProgressSpinnerModule,
+		MatSidenavModule,
+		ReactiveFormsModule,
+		MatSnackBarModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],

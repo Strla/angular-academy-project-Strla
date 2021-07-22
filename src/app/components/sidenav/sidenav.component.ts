@@ -17,5 +17,13 @@ export class SidenavComponent {
 			url: '/top-rated',
 			title: 'Top rated',
 		},
+		{
+			url: '/registration',
+			title: 'Registration',
+		},
+		{
+			url: '/login',
+			title: 'Login',
+		},
 	];
 }
