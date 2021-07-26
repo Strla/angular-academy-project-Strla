@@ -34,8 +34,8 @@ export class LoginContainerComponent {
 					throw new Error(error);
 				})
 			)
-			.subscribe((response: HttpResponse<any>) => {
-				//this.router.navigate(['']);
+			.subscribe(() => {
+				this.router.navigate(['']);
 			});
 	}
 }
