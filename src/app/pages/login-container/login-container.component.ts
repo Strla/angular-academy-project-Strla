@@ -1,3 +1,4 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -33,9 +34,8 @@ export class LoginContainerComponent {
 					throw new Error(error);
 				})
 			)
-			.subscribe((data) => {
-				console.log(data);
-				this.router.navigate(['']);
+			.subscribe((response: HttpResponse<any>) => {
+				//this.router.navigate(['']);
 			});
 	}
 }
