@@ -26,7 +26,6 @@ export class AuthenticationService {
 					const token: string | null = response.headers.get('access-token');
 					const client: string | null = response.headers.get('client');
 					const uid: string | null = response.headers.get('uid');
-					console.log(token, client, uid);
 
 					if (token && client && uid) {
 						this.saveAuthData({ token, client, uid });
