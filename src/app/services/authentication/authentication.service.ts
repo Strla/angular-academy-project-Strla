@@ -1,6 +1,6 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { tap } from 'rxjs/internal/operators';
 import { AuthData } from 'src/app/interfaces/auth-data.interface';
 import { ILoginFormData } from 'src/app/pages/login-container/components/login-form/login-form.component';
@@ -12,6 +12,9 @@ import { StorageService } from '../storage/storage.service';
 })
 export class AuthenticationService {
 	private readonly authDataKey = 'authData';
+
+	public isLoggedIn$: BehaviorSubject<boolean> = new BehaviorSubject(Boolean(this.getAuthData()));
+
 	constructor(private http: HttpClient, private storage: StorageService) {}
 
 	public onRegister(userData: IRegistrationFormData): Observable<IRegistrationFormData> {
@@ -29,6 +32,7 @@ export class AuthenticationService {
 
 					if (token && client && uid) {
 						this.saveAuthData({ token, client, uid });
+						this.isLoggedIn$.next(true);
 					}
 				})
 			);
