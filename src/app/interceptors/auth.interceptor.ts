@@ -23,15 +23,6 @@ export class AuthInterceptor implements HttpInterceptor {
 			});
 		}
 
-		/* if (authData) {
-			finalRequest = request.clone({
-				setHeaders: {
-					'access-token': authData.token,
-					client: authData.client,
-					uid: authData.uid,
-				},
-			});
-		} */
 		console.log(finalRequest);
 		return next.handle(finalRequest);
 	}
