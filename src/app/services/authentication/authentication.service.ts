@@ -38,6 +38,11 @@ export class AuthenticationService {
 			);
 	}
 
+	public logOut(): void {
+		this.storage.remove(this.authDataKey);
+		this.isLoggedIn$.next(false);
+	}
+
 	public getAuthData(): AuthData | null {
 		return this.storage.get(this.authDataKey);
 	}
