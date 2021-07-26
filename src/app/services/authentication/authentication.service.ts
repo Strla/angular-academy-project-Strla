@@ -13,7 +13,8 @@ import { StorageService } from '../storage/storage.service';
 export class AuthenticationService {
 	private readonly authDataKey = 'authData';
 
-	public isLoggedIn$: BehaviorSubject<boolean> = new BehaviorSubject(Boolean(this.getAuthData()));
+	private _isLoggedIn$: BehaviorSubject<boolean> = new BehaviorSubject(Boolean(this.getAuthData()));
+	public isLoggedIn$: Observable<boolean> = this._isLoggedIn$.asObservable();
 
 	constructor(private http: HttpClient, private storage: StorageService) {}
 
@@ -32,7 +33,7 @@ export class AuthenticationService {
 
 					if (token && client && uid) {
 						this.saveAuthData({ token, client, uid });
-						this.isLoggedIn$.next(true);
+						this._isLoggedIn$.next(true);
 					}
 				})
 			);
@@ -40,7 +41,7 @@ export class AuthenticationService {
 
 	public logOut(): void {
 		this.storage.remove(this.authDataKey);
-		this.isLoggedIn$.next(false);
+		this._isLoggedIn$.next(false);
 	}
 
 	public getAuthData(): AuthData | null {
