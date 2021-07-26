@@ -20,6 +20,7 @@ import { RatingComponentComponent } from './components/rating-component/rating-c
 import { ShowCardComponent } from './components/show-card/show-card.component';
 import { ShowListComponent } from './components/show-list/show-list.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { AuthErrorInterceptor } from './interceptors/auth-error.interceptor';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AllShowsContainerComponent } from './pages/all-shows-container/all-shows-container.component';
 import { LoginFormComponent } from './pages/login-container/components/login-form/login-form.component';
@@ -72,6 +73,11 @@ import { TopRatedShowsContainerComponent } from './pages/top-rated-shows-contain
 		{
 			provide: HTTP_INTERCEPTORS,
 			useClass: AuthInterceptor,
+			multi: true,
+		},
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: AuthErrorInterceptor,
 			multi: true,
 		},
 	],

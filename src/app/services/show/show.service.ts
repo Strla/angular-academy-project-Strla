@@ -14,7 +14,6 @@ export class ShowService {
 	public getShows(): Observable<Array<Show>> {
 		return this.http.get<{ shows: Array<IRawShow> }>('https://tv-shows.infinum.academy/shows').pipe(
 			map((response) => {
-				console.log(response);
 				return response.shows.map((rawShowData: IRawShow) => new Show(rawShowData));
 			})
 		);
@@ -22,7 +21,6 @@ export class ShowService {
 	public getTopRated(): Observable<Array<Show>> {
 		return this.http.get<{ shows: Array<IRawShow> }>('https://tv-shows.infinum.academy/shows/top_rated').pipe(
 			map((response) => {
-				console.log(response);
 				return response.shows.map((rawShowData: IRawShow) => new Show(rawShowData));
 			})
 		);
@@ -30,6 +28,11 @@ export class ShowService {
 	}
 
 	public getShow(id: string): Observable<Show | null> {
+		/* return this.http.get<{ shows: IRawShow }>('https://tv-shows.infinum.academy/shows/{id}').pipe(
+			map((response) => {
+				return response.shows.map((rawShowData: IRawShow) => new Show(rawShowData));
+			})
+		); */
 		return this.getShows().pipe(map((shows) => shows.find((show: Show) => show.id === id) || null));
 	}
 }
