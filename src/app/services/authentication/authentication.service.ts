@@ -11,6 +11,8 @@ import { StorageService } from '../storage/storage.service';
 	providedIn: 'root',
 })
 export class AuthenticationService {
+	private apiUrl: string = 'https://tv-shows.infinum.academy/';
+
 	private readonly authDataKey = 'authData';
 
 	private _isLoggedIn$: BehaviorSubject<boolean> = new BehaviorSubject(Boolean(this.getAuthData()));
@@ -18,25 +20,34 @@ export class AuthenticationService {
 
 	constructor(private http: HttpClient, private storage: StorageService) {}
 
-	public onRegister(userData: IRegistrationFormData): Observable<IRegistrationFormData> {
-		return this.http.post<IRegistrationFormData>('https://tv-shows.infinum.academy/users', userData);
+	public onRegister(userData: IRegistrationFormData): Observable<any> {
+		return this.http.post<HttpResponse<any>>(`${this.apiUrl}/users`, userData, { observe: 'response' }).pipe(
+			tap((response: HttpResponse<any>) => {
+				const token: string | null = response.headers.get('access-token');
+				const client: string | null = response.headers.get('client');
+				const uid: string | null = response.headers.get('uid');
+
+				if (token && client && uid) {
+					this.saveAuthData({ token, client, uid });
+					this._isLoggedIn$.next(true);
+				}
+			})
+		);
 	}
 
 	public onLogin(loginData: ILoginFormData): Observable<any> {
-		return this.http
-			.post<HttpResponse<any>>('https://tv-shows.infinum.academy/users/sign_in', loginData, { observe: 'response' })
-			.pipe(
-				tap((response: HttpResponse<any>) => {
-					const token: string | null = response.headers.get('access-token');
-					const client: string | null = response.headers.get('client');
-					const uid: string | null = response.headers.get('uid');
+		return this.http.post<HttpResponse<any>>(`${this.apiUrl}/users/sign_in`, loginData, { observe: 'response' }).pipe(
+			tap((response: HttpResponse<any>) => {
+				const token: string | null = response.headers.get('access-token');
+				const client: string | null = response.headers.get('client');
+				const uid: string | null = response.headers.get('uid');
 
-					if (token && client && uid) {
-						this.saveAuthData({ token, client, uid });
-						this._isLoggedIn$.next(true);
-					}
-				})
-			);
+				if (token && client && uid) {
+					this.saveAuthData({ token, client, uid });
+					this._isLoggedIn$.next(true);
+				}
+			})
+		);
 	}
 
 	public logOut(): void {

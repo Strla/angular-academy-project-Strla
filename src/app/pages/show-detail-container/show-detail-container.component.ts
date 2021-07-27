@@ -1,11 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 import { combineLatest, Observable, of } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/internal/operators';
 import { Review } from 'src/app/services/review/review.model';
 import { ReviewService } from 'src/app/services/review/review.service';
 import { Show } from 'src/app/services/show/show.model';
 import { ShowService } from 'src/app/services/show/show.service';
+import { IReviewFormData } from './components/add-review-form/add-review-form.component';
 
 interface ITemplateData {
 	show: Show;
@@ -54,4 +55,10 @@ export class ShowDetailContainerComponent {
 		}),
 		tap(console.log)
 	);
+
+	public onPostReview(reviewFormData: IReviewFormData): void {
+		const id: string | null = this.route.snapshot.paramMap.get('id');
+
+		this.reviewService.createReview(reviewFormData, id).subscribe();
+	}
 }

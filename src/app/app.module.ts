@@ -32,6 +32,7 @@ import { ShowDetailComponent } from './pages/show-detail-container/components/sh
 import { ShowReviewComponent } from './pages/show-detail-container/components/show-review/show-review.component';
 import { ShowDetailContainerComponent } from './pages/show-detail-container/show-detail-container.component';
 import { TopRatedShowsContainerComponent } from './pages/top-rated-shows-container/top-rated-shows-container.component';
+import { AddReviewFormComponent } from './pages/show-detail-container/components/add-review-form/add-review-form.component';
 
 @NgModule({
 	declarations: [
@@ -52,6 +53,7 @@ import { TopRatedShowsContainerComponent } from './pages/top-rated-shows-contain
 		ShowReviewComponent,
 		SidenavComponent,
 		TopRatedShowsContainerComponent,
+  AddReviewFormComponent,
 	],
 	imports: [
 		AppRoutingModule,
