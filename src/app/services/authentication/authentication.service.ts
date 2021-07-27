@@ -23,14 +23,7 @@ export class AuthenticationService {
 	public onRegister(userData: IRegistrationFormData): Observable<any> {
 		return this.http.post<HttpResponse<any>>(`${this.apiUrl}/users`, userData, { observe: 'response' }).pipe(
 			tap((response: HttpResponse<any>) => {
-				const token: string | null = response.headers.get('access-token');
-				const client: string | null = response.headers.get('client');
-				const uid: string | null = response.headers.get('uid');
-
-				if (token && client && uid) {
-					this.saveAuthData({ token, client, uid });
-					this._isLoggedIn$.next(true);
-				}
+				this.getHeaders(response);
 			})
 		);
 	}
@@ -38,14 +31,7 @@ export class AuthenticationService {
 	public onLogin(loginData: ILoginFormData): Observable<any> {
 		return this.http.post<HttpResponse<any>>(`${this.apiUrl}/users/sign_in`, loginData, { observe: 'response' }).pipe(
 			tap((response: HttpResponse<any>) => {
-				const token: string | null = response.headers.get('access-token');
-				const client: string | null = response.headers.get('client');
-				const uid: string | null = response.headers.get('uid');
-
-				if (token && client && uid) {
-					this.saveAuthData({ token, client, uid });
-					this._isLoggedIn$.next(true);
-				}
+				this.getHeaders(response);
 			})
 		);
 	}
@@ -61,5 +47,16 @@ export class AuthenticationService {
 
 	private saveAuthData(authData: AuthData): void {
 		this.storage.add(this.authDataKey, authData);
+	}
+
+	private getHeaders(response: HttpResponse<any>) {
+		const token: string | null = response.headers.get('access-token');
+		const client: string | null = response.headers.get('client');
+		const uid: string | null = response.headers.get('uid');
+
+		if (token && client && uid) {
+			this.saveAuthData({ token, client, uid });
+			this._isLoggedIn$.next(true);
+		}
 	}
 }
