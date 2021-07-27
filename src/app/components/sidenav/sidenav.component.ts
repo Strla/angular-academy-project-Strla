@@ -1,5 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Router } from '@angular/router';
 import { ILink } from 'src/app/interfaces/link.interface';
+import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 
 @Component({
 	selector: 'app-sidenav',
@@ -8,6 +10,7 @@ import { ILink } from 'src/app/interfaces/link.interface';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidenavComponent {
+	constructor(private authService: AuthenticationService, private router: Router) {}
 	public links: Array<ILink> = [
 		{
 			url: '',
@@ -26,4 +29,9 @@ export class SidenavComponent {
 			title: 'Login',
 		},
 	];
+
+	public logOut(): void {
+		this.authService.logOut();
+		this.router.navigate(['/login']);
+	}
 }

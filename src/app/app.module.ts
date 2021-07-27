@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -20,6 +20,8 @@ import { RatingComponentComponent } from './components/rating-component/rating-c
 import { ShowCardComponent } from './components/show-card/show-card.component';
 import { ShowListComponent } from './components/show-list/show-list.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { AuthErrorInterceptor } from './interceptors/auth-error.interceptor';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AllShowsContainerComponent } from './pages/all-shows-container/all-shows-container.component';
 import { LoginFormComponent } from './pages/login-container/components/login-form/login-form.component';
 import { LoginContainerComponent } from './pages/login-container/login-container.component';
@@ -30,6 +32,7 @@ import { ShowDetailComponent } from './pages/show-detail-container/components/sh
 import { ShowReviewComponent } from './pages/show-detail-container/components/show-review/show-review.component';
 import { ShowDetailContainerComponent } from './pages/show-detail-container/show-detail-container.component';
 import { TopRatedShowsContainerComponent } from './pages/top-rated-shows-container/top-rated-shows-container.component';
+import { AddReviewFormComponent } from './pages/show-detail-container/components/add-review-form/add-review-form.component';
 
 @NgModule({
 	declarations: [
@@ -50,6 +53,7 @@ import { TopRatedShowsContainerComponent } from './pages/top-rated-shows-contain
 		ShowReviewComponent,
 		SidenavComponent,
 		TopRatedShowsContainerComponent,
+  AddReviewFormComponent,
 	],
 	imports: [
 		AppRoutingModule,
@@ -67,7 +71,18 @@ import { TopRatedShowsContainerComponent } from './pages/top-rated-shows-contain
 		ReactiveFormsModule,
 		MatSnackBarModule,
 	],
-	providers: [],
+	providers: [
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: AuthInterceptor,
+			multi: true,
+		},
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: AuthErrorInterceptor,
+			multi: true,
+		},
+	],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}
