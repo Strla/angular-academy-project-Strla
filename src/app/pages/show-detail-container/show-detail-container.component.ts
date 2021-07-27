@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
-import { combineLatest, Observable, of } from 'rxjs';
+import { combineLatest, Observable, of, throwError } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/internal/operators';
 import { Review } from 'src/app/services/review/review.model';
 import { ReviewService } from 'src/app/services/review/review.service';
@@ -22,38 +22,19 @@ interface ITemplateData {
 export class ShowDetailContainerComponent {
 	constructor(private route: ActivatedRoute, private showService: ShowService, private reviewService: ReviewService) {}
 
-	private show$: Observable<Show | null> = this.route.paramMap.pipe(
+	public templateData$: Observable<ITemplateData> = this.route.paramMap.pipe(
 		switchMap((paramMap) => {
 			const id: string | null = paramMap.get('id');
 
-			if (id) {
-				return this.showService.getShow(id);
+			if (!id) {
+				return throwError('no id!');
 			}
 
-			return of(null);
-		})
-	);
-
-	private reviews$: Observable<Array<Review> | null> = this.route.paramMap.pipe(
-		switchMap((paramMap) => {
-			const id: string | null = paramMap.get('id');
-
-			if (id) {
-				return this.reviewService.getAllReviews(id);
-			}
-
-			return of(null);
-		})
-	);
-
-	public templateData$: Observable<ITemplateData> = combineLatest([this.show$, this.reviews$]).pipe(
-		map(([show, reviews]) => {
-			return {
-				show,
-				reviews,
-			};
+			return combineLatest([this.showService.getShow(id), this.reviewService.getAllReviews(id)]);
 		}),
-		tap(console.log)
+		map(([show, reviews]) => {
+			return { show, reviews };
+		})
 	);
 
 	public onPostReview(reviewFormData: IReviewFormData): void {
