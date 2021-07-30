@@ -34,6 +34,7 @@ import { ShowDetailContainerComponent } from './pages/show-detail-container/show
 import { TopRatedShowsContainerComponent } from './pages/top-rated-shows-container/top-rated-shows-container.component';
 import { AddReviewFormComponent } from './pages/show-detail-container/components/add-review-form/add-review-form.component';
 import { LogoComponent } from './components/logo/logo.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
 	declarations: [
@@ -54,8 +55,8 @@ import { LogoComponent } from './components/logo/logo.component';
 		ShowReviewComponent,
 		SidenavComponent,
 		TopRatedShowsContainerComponent,
-  AddReviewFormComponent,
-  LogoComponent,
+		AddReviewFormComponent,
+		LogoComponent,
 	],
 	imports: [
 		AppRoutingModule,
@@ -72,6 +73,7 @@ import { LogoComponent } from './components/logo/logo.component';
 		MatSidenavModule,
 		ReactiveFormsModule,
 		MatSnackBarModule,
+		LayoutModule,
 	],
 	providers: [
 		{
