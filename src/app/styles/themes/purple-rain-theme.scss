@@ -1,12 +1,10 @@
 @use 'sass:map';
+@use 'utils/colors';
 @use '~@angular/material' as mat;
 
 @import '~@angular/material/theming';
 
-$light-purple: #8d5ce5;
-$purple: #371687;
-$dark-purple: #1b004c;
-$error: #ff2498;
+
 
 $typography-config: mat.define-typography-config(
 	$headline: mat.define-typography-level(40px, 52px, 700),
@@ -36,10 +34,10 @@ $grey-palette: (
 $background: (
 	status-bar: black,
 	app-bar: map.get($grey-palette, 900),
-	background: $dark-purple,
+	background: colors.$dark-purple,
 	hover: rgba(white, 0.04),
-	card: $purple,
-	dialog: $dark-purple,
+	card: colors.$purple,
+	dialog: colors.$dark-purple,
 	disabled-button: rgba(white, 0.12),
 	raised-button: white,
 	focused-button: white,
@@ -161,7 +159,7 @@ $warn: mat-palette($warn-color-palette, 400);
 
 .shows-app {
 	.mat-raised-button.mat-primary {
-		color: $purple;
+		color: colors.$purple;
 		border-radius: 32px;
 		padding: 20px 40px;
 		max-height: 52px;
