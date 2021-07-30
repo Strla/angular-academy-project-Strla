@@ -1,4 +1,5 @@
-<mat-card>
+<mat-card class="card">
+	<app-logo></app-logo>
 	<form [formGroup]="loginFormGroup">
 		<mat-form-field appearance="outline">
 			<mat-label>Email</mat-label>
@@ -14,8 +15,12 @@
 			<mat-error *ngIf="loginFormGroup.get('password')?.errors?.required">Password is required</mat-error>
 		</mat-form-field>
 
-		<button mat-raised-button (click)="onLoginUser()" [disabled]="loginFormGroup.invalid">Login</button>
+		<div class="btn-reg">
+			<button mat-raised-button color="primary" (click)="onLoginUser()" [disabled]="loginFormGroup.invalid">
+				Login
+			</button>
 
-		<p>Don't have an account? <a routerLink="/registration">Register</a></p>
+			<p>Don't have an account? <a class="link" routerLink="/registration">Register</a></p>
+		</div>
 	</form>
 </mat-card>
