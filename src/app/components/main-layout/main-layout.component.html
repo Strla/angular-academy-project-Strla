@@ -1,16 +1,20 @@
 <ng-container *ngIf="layout$ | async as layout">
 	<mat-drawer-container class="main-layout-drawer">
 		<mat-drawer
+			class="side-drawer"
 			[mode]="layout.isSmall ? 'over' : 'side'"
 			[position]="layout.isSmall ? 'end' : 'start'"
 			[opened]="!layout.isSmall"
 			#drawer
 		>
-			<app-logo *ngIf="!layout.isSmall"></app-logo>
+			<div class="side-container">
+				<app-logo *ngIf="!layout.isSmall" class="logo"></app-logo>
 
-			<button *ngIf="layout.isSmall" mat-icon-button (click)="drawer.close()"><mat-icon>close</mat-icon></button>
+				<button *ngIf="layout.isSmall" mat-icon-button (click)="drawer.close()"><mat-icon>close</mat-icon></button>
 
-			<app-sidenav></app-sidenav>
+				<app-sidenav class="sidenav"></app-sidenav>
+				<button class="log-out-btn" mat-raised-button color="primary" (click)="logOut()">Log out</button>
+			</div>
 		</mat-drawer>
 		<mat-drawer-content class="content">
 			<header *ngIf="layout.isSmall" class="header">

@@ -2,6 +2,20 @@
 	height: 100%;
 }
 
+.side-drawer {
+	min-width: 264px;
+	padding: 32px 32px 56px;
+	
+
+	.logo {
+		margin-bottom: 80px;
+	}
+
+	.sidenav {
+		flex: 1;
+	}
+}
+
 .content {
 	padding: 32px;
 
@@ -13,3 +27,15 @@
 	display: flex;
 	justify-content: space-between;
 }
+
+.side-container {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+
+	.log-out-btn {
+		margin-top: auto;
+	}
+
+}
+

@@ -1,7 +1,9 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/internal/operators';
+import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 
 interface ILayout {
 	isSmall: boolean;
@@ -16,7 +18,11 @@ interface ILayout {
 export class MainLayoutComponent {
 	public layout$: Observable<ILayout> = new Observable<ILayout>();
 
-	constructor(breakpointObserver: BreakpointObserver) {
+	constructor(
+		breakpointObserver: BreakpointObserver,
+		private authService: AuthenticationService,
+		private router: Router
+	) {
 		this.layout$ = breakpointObserver.observe([Breakpoints.XSmall, Breakpoints.Small]).pipe(
 			map(({ matches }) => {
 				return {
@@ -24,5 +30,10 @@ export class MainLayoutComponent {
 				};
 			})
 		);
+	}
+
+	public logOut(): void {
+		this.authService.logOut();
+		this.router.navigate(['/login']);
 	}
 }
