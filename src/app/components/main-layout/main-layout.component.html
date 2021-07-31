@@ -21,7 +21,9 @@
 		<mat-drawer-content class="content">
 			<header *ngIf="layout.isSmall" class="header">
 				<app-logo></app-logo>
-				<button mat-icon-button (click)="drawer.open()"><mat-icon>menu</mat-icon></button>
+				<button mat-icon-button (click)="drawer.open()">
+					<mat-icon>menu</mat-icon>
+				</button>
 			</header>
 			<router-outlet></router-outlet>
 		</mat-drawer-content>
