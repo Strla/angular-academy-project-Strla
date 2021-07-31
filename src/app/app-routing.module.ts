@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppGuard } from './app.guard';
 import { FormLayoutComponent } from './components/form-layout/form-layout.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
+import { LoggedGuard } from './logged.guard';
 import { AllShowsContainerComponent } from './pages/all-shows-container/all-shows-container.component';
 import { LoginContainerComponent } from './pages/login-container/login-container.component';
 import { RegistrationContainerComponent } from './pages/registration-container/registration-container.component';
@@ -33,6 +34,7 @@ const routes: Routes = [
 				component: LoginContainerComponent,
 			},
 		],
+		canActivate: [LoggedGuard],
 	},
 	{
 		path: '**',
