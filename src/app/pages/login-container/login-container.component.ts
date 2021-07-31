@@ -36,6 +36,7 @@ export class LoginContainerComponent {
 			)
 			.subscribe(() => {
 				this.router.navigate(['']);
+				this._snackbar.dismiss();
 			});
 	}
 }

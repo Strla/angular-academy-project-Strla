@@ -7,4 +7,8 @@
 	height: 100%;
 	background-color: colors.$dark-purple;
 
+	@media screen and (max-width: 600px) {
+		background-color: colors.$purple;
+	}
+
 }
