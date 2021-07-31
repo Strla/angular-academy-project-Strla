@@ -8,6 +8,7 @@
 	height: 300px;
 	width: 100%;
 	background-color: colors.$dark-purple;
+	box-shadow: none;
 }
 
 
@@ -21,4 +22,14 @@ form {
 button {
 	width: 200px;
 	justify-self: flex-end;
+}
+
+.review {
+	background-color: colors.$white;
+	border-radius: 24px;
+
+	mat-label {
+			color: colors.$light-purple;
+
+	}
 }

@@ -1,13 +1,12 @@
 <mat-card class="card">
 	<form [formGroup]="addReviewFormGroup">
-		<mat-form-field appearance="outline">
-			<mat-label>Comment</mat-label>
+		<mat-form-field appearance="outline" class="review">
+			<mat-label>Enter review</mat-label>
 			<input matInput type="text" formControlName="comment" />
-			<mat-icon matPrefix>comment</mat-icon>
-			<mat-error *ngIf="addReviewFormGroup.get('comment')?.errors?.required">Comment is required</mat-error>
+			<mat-error *ngIf="addReviewFormGroup.get('comment')?.errors?.required">Review is required</mat-error>
 		</mat-form-field>
 
-		<mat-form-field appearance="outline">
+		<mat-form-field appearance="outline" class="rating">
 			<mat-label>Rating</mat-label>
 			<input matInput type="number" formControlName="rating" min="1" max="5" />
 			<mat-error *ngIf="addReviewFormGroup.get('rating')?.errors?.required">Rating is required</mat-error>
