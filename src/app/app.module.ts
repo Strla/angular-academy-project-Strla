@@ -16,7 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormLayoutComponent } from './components/form-layout/form-layout.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
-import { RatingComponentComponent } from './components/rating-component/rating-component.component';
+import { RatingComponentComponent } from './components/rating/rating-component.component';
 import { ShowCardComponent } from './components/show-card/show-card.component';
 import { ShowListComponent } from './components/show-list/show-list.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
@@ -35,6 +35,9 @@ import { TopRatedShowsContainerComponent } from './pages/top-rated-shows-contain
 import { AddReviewFormComponent } from './pages/show-detail-container/components/add-review-form/add-review-form.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { ProfileContainerComponent } from './pages/profile-container/profile-container.component';
+import { EmailComponent } from './components/email/email.component';
+import { DropZoneComponent } from './components/drop-zone/drop-zone.component';
 
 @NgModule({
 	declarations: [
@@ -57,6 +60,9 @@ import { LayoutModule } from '@angular/cdk/layout';
 		TopRatedShowsContainerComponent,
 		AddReviewFormComponent,
 		LogoComponent,
+		ProfileContainerComponent,
+  EmailComponent,
+  DropZoneComponent,
 	],
 	imports: [
 		AppRoutingModule,
