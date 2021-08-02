@@ -38,6 +38,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { ProfileContainerComponent } from './pages/profile-container/profile-container.component';
 import { EmailComponent } from './components/email/email.component';
 import { DropZoneComponent } from './components/drop-zone/drop-zone.component';
+import { RatingModule } from 'ng-starrating';
 
 @NgModule({
 	declarations: [
@@ -61,8 +62,8 @@ import { DropZoneComponent } from './components/drop-zone/drop-zone.component';
 		AddReviewFormComponent,
 		LogoComponent,
 		ProfileContainerComponent,
-  EmailComponent,
-  DropZoneComponent,
+		EmailComponent,
+		DropZoneComponent,
 	],
 	imports: [
 		AppRoutingModule,
@@ -80,6 +81,7 @@ import { DropZoneComponent } from './components/drop-zone/drop-zone.component';
 		ReactiveFormsModule,
 		MatSnackBarModule,
 		LayoutModule,
+		RatingModule,
 	],
 	providers: [
 		{

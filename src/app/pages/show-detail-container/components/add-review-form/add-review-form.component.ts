@@ -1,5 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { StarRatingComponent } from 'ng-starrating';
 
 export interface IReviewFormData {
 	comment: string;
@@ -15,15 +16,21 @@ export interface IReviewFormData {
 export class AddReviewFormComponent {
 	@Output() postReview: EventEmitter<IReviewFormData> = new EventEmitter();
 
-	public addReviewFormGroup: FormGroup = this.fb.group({
-		comment: ['', [Validators.required]],
-		rating: ['', [Validators.required]],
-	});
-
 	constructor(private fb: FormBuilder) {}
 
 	public onReviewPost(): void {
 		this.postReview.emit(this.addReviewFormGroup.value);
 		this.addReviewFormGroup.reset();
 	}
+
+	onRate($event: { oldValue: number; newValue: number; starRating: StarRatingComponent }) {
+		this.addReviewFormGroup = this.fb.group({
+			rating: $event.newValue,
+			comment: ['', [Validators.required]],
+		});
+	}
+
+	public addReviewFormGroup: FormGroup = this.fb.group({
+		comment: ['', [Validators.required]],
+	});
 }
