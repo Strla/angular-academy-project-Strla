@@ -22,15 +22,14 @@ export class AddReviewFormComponent {
 		this.postReview.emit(this.addReviewFormGroup.value);
 		this.addReviewFormGroup.reset();
 	}
-
-	onRate($event: { oldValue: number; newValue: number; starRating: StarRatingComponent }) {
-		this.addReviewFormGroup = this.fb.group({
-			rating: $event.newValue,
-			comment: ['', [Validators.required]],
-		});
-	}
-
 	public addReviewFormGroup: FormGroup = this.fb.group({
 		comment: ['', [Validators.required]],
+		rating: ['', [Validators.required]],
 	});
+
+	onRate($event: { oldValue: number; newValue: number; starRating: StarRatingComponent }) {
+		this.addReviewFormGroup.patchValue({
+			rating: $event.newValue,
+		});
+	}
 }
