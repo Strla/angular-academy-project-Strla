@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, OnInit } from '@angular/core';
+import { StorageService } from 'src/app/services/storage/storage.service';
 
 @Component({
 	selector: 'app-email',
@@ -7,5 +8,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmailComponent {
-	constructor() {}
+	constructor(private storage: StorageService) {}
+
+	data = this.storage.get('authData');
+	email = this.data['uid'];
 }
