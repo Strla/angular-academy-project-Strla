@@ -4,7 +4,7 @@
 			<img *ngIf="review.user.image_url" src="{{ review.user.image_url }}" />
 		</div>
 		<div class="left-side">
-			<p>{{ review.user.email }}</p>
+			<p class="mail">{{ review.user.email }}</p>
 
 			<app-rating-component [rating]="review.rating"></app-rating-component>
 		</div>
