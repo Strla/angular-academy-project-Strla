@@ -1,7 +1,7 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, Subject } from 'rxjs';
-import { delay, map, tap } from 'rxjs/internal/operators';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/internal/operators';
 
 import { IRawReview } from 'src/app/interfaces/rawReview.interface';
 import { IReviewFormData } from 'src/app/pages/show-detail-container/components/add-review-form/add-review-form.component';

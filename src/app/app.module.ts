@@ -39,6 +39,7 @@ import { ProfileContainerComponent } from './pages/profile-container/profile-con
 import { EmailComponent } from './components/email/email.component';
 import { DropZoneComponent } from './components/drop-zone/drop-zone.component';
 import { RatingModule } from 'ng-starrating';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 @NgModule({
 	declarations: [
@@ -82,6 +83,7 @@ import { RatingModule } from 'ng-starrating';
 		MatSnackBarModule,
 		LayoutModule,
 		RatingModule,
+		NgxDropzoneModule,
 	],
 	providers: [
 		{

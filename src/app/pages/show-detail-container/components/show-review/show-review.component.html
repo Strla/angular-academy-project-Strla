@@ -1,6 +1,16 @@
 <mat-card class="show-review-container">
 	<div class="review">
-		<p>{{ review.comment }}</p>
-		<app-rating-component [rating]="review.rating"></app-rating-component>
+		<div class="img">
+			<img *ngIf="review.user.image_url" src="{{ review.user.image_url }}" />
+		</div>
+		<div class="left-side">
+			<p>{{ review.user.email }}</p>
+
+			<app-rating-component [rating]="review.rating"></app-rating-component>
+		</div>
+
+		<div class="right-side">
+			<p>{{ review.comment }}</p>
+		</div>
 	</div>
 </mat-card>

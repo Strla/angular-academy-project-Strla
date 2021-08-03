@@ -3,6 +3,7 @@
 		<mat-form-field appearance="outline" class="review">
 			<mat-label>Enter review</mat-label>
 			<input matInput type="text" formControlName="comment" />
+			<mat-error *ngIf="addReviewFormGroup.get('comment')?.errors?.required">Review is required</mat-error>
 		</mat-form-field>
 
 		<mat-form-field class="rating">
