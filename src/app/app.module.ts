@@ -43,12 +43,17 @@ import { TopRatedShowsContainerComponent } from './pages/top-rated-shows-contain
 
 @NgModule({
 	declarations: [
+		AddReviewFormComponent,
 		AllShowsContainerComponent,
 		AppComponent,
+		DropZoneComponent,
+		EmailComponent,
 		FormLayoutComponent,
 		LoginContainerComponent,
 		LoginFormComponent,
+		LogoComponent,
 		MainLayoutComponent,
+		ProfileContainerComponent,
 		RatingComponentComponent,
 		RegistrationContainerComponent,
 		RegistrationFormComponent,
@@ -60,17 +65,13 @@ import { TopRatedShowsContainerComponent } from './pages/top-rated-shows-contain
 		ShowReviewComponent,
 		SidenavComponent,
 		TopRatedShowsContainerComponent,
-		AddReviewFormComponent,
-		LogoComponent,
-		ProfileContainerComponent,
-		EmailComponent,
-		DropZoneComponent,
 	],
 	imports: [
 		AppRoutingModule,
 		BrowserAnimationsModule,
 		BrowserModule,
 		HttpClientModule,
+		LayoutModule,
 		MatButtonModule,
 		MatCardModule,
 		MatFormFieldModule,
@@ -79,10 +80,9 @@ import { TopRatedShowsContainerComponent } from './pages/top-rated-shows-contain
 		MatProgressBarModule,
 		MatProgressSpinnerModule,
 		MatSidenavModule,
-		ReactiveFormsModule,
 		MatSnackBarModule,
-		LayoutModule,
 		RatingModule,
+		ReactiveFormsModule,
 	],
 	providers: [
 		{
