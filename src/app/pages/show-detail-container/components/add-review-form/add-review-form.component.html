@@ -1,18 +1,28 @@
-<mat-card>
+<mat-card class="card">
 	<form [formGroup]="addReviewFormGroup">
-		<mat-form-field appearance="outline">
-			<mat-label>Comment</mat-label>
+		<mat-form-field appearance="outline" class="review">
+			<mat-label>Enter review</mat-label>
 			<input matInput type="text" formControlName="comment" />
-			<mat-icon matPrefix>comment</mat-icon>
-			<mat-error *ngIf="addReviewFormGroup.get('comment')?.errors?.required">Comment is required</mat-error>
+			<mat-error *ngIf="addReviewFormGroup.get('comment')?.errors?.required">Review is required</mat-error>
 		</mat-form-field>
 
-		<mat-form-field appearance="outline">
+		<mat-form-field class="rating">
 			<mat-label>Rating</mat-label>
-			<input matInput type="number" formControlName="rating" min="1" max="5" />
-			<mat-error *ngIf="addReviewFormGroup.get('rating')?.errors?.required">Rating is required</mat-error>
+			<input class="rating-input" matInput type="number" min="1" max="5" />
+			<star-rating
+				formControlName="rating"
+				[value]="0"
+				[totalstars]="5"
+				checkedcolor="purple"
+				uncheckedcolor="white"
+				size="24px"
+				[readonly]="false"
+				(rate)="onRate($event)"
+			></star-rating>
 		</mat-form-field>
 
-		<button mat-raised-button (click)="onReviewPost()" [disabled]="addReviewFormGroup.invalid">Post</button>
+		<button mat-raised-button color="primary" (click)="onReviewPost()" [disabled]="addReviewFormGroup.invalid">
+			Post
+		</button>
 	</form>
 </mat-card>

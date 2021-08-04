@@ -1,4 +1,3 @@
-import { HttpResponse } from '@angular/common/http';
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -36,6 +35,7 @@ export class LoginContainerComponent {
 			)
 			.subscribe(() => {
 				this.router.navigate(['']);
+				this._snackbar.dismiss();
 			});
 	}
 }

@@ -1,0 +1,20 @@
+.card {
+	height: 400px;
+	width: 599px;
+	border-radius: 24px;
+
+	@media screen and (max-width: 620px) {
+		height: 271px;
+		width: 271px;	
+	}
+
+	img {
+		margin-left: 200px;
+		margin-top: 70px;
+
+		@media screen and (max-width: 620px) {
+			margin-left: 50px;
+			margin-top: 40px;
+		}
+	}
+}

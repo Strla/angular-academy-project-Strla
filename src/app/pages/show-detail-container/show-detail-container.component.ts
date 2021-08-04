@@ -1,6 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
-import { BehaviorSubject, combineLatest, Observable, of, Subject, throwError } from 'rxjs';
+import { combineLatest, Observable, throwError } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/internal/operators';
 import { Review } from 'src/app/services/review/review.model';
 import { ReviewService } from 'src/app/services/review/review.service';

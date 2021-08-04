@@ -1,6 +1,6 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/internal/operators';
 import { AuthData } from 'src/app/interfaces/auth-data.interface';
 import { ILoginFormData } from 'src/app/pages/login-container/components/login-form/login-form.component';

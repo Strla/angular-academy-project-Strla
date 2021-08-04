@@ -1,12 +1,10 @@
 <mat-card class="show-card">
 	<div>
-		<img [src]="imageUrl" />
+		<img class="image" [src]="imageUrl" />
 	</div>
-	<div>
+	<div class="info">
 		<h3>{{ title }}</h3>
-		<p>
-			<span>{{ description }}</span>
-		</p>
+
+		<app-rating-component [rating]="averageRating"></app-rating-component>
 	</div>
-	<app-rating-component [rating]="averageRating"></app-rating-component>
 </mat-card>

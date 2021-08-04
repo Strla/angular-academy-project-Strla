@@ -3,5 +3,48 @@
 	margin: 16px;
 	border-radius: 24px;
 	overflow: hidden;
+	height: 10%;
+
+	
+}
+
+.review {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	text-align: left;
+}
+
+
+
+.left-side{
+	flex-grow: 1;
+	align-self: center;
+	margin-left: 50px;
+	margin-bottom: 30px;
+	flex-wrap: nowrap;
+
+}
+
+.right-side {
+	flex-grow: 1;
+	flex-direction: column;
+
+	p {
+		width: 250px;
+	}
+}
+
+
+
+img {
+	height: 50px;
+	width: 50px;
+	border-radius: 24px;
+	margin-top: 20px;
+}
+
+.mail {
+	font-weight: bold;
 }
 
