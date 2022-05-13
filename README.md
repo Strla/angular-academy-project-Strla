@@ -19,3 +19,10 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+
+
+## Tip
+
+When you're registering, enter full email with .com or something otherwise it won't work
+example: john@localhost is invalid || john@gmail.com is valid
